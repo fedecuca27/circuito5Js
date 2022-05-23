@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="circuito5, circuito, taller, mecanica, potenciacion, custom, chopper, motos, repuestos, accesorios, honda, yamaha, suzuki, kawasaki, motomel, corven, keller, gilera, buenos aires, argentina, capital federal">
+    <meta name="description=" content="Circuito5 Moto Store somos un taller y repuestera de motos nacionales e importadas en Buenos Aires Capital Federal Argentina">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Circuito 5 online-store</title>
+    <link rel="icon" type="image/jpg" href="imagenes/logocircuito.jpg">
+</head>
+<body>
+    <header class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="index.html">
+                            <img class="logoHeader" src="imagenes/logocircuito.jpg" alt="logo provisorio" width="70px">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto">
+                                <li class="linkDos nav-item">
+                                    <a class="letraHeader nav-link active" aria-current="page" href="index.html">Home</a>
+                                </li>
+                                <li class="linkDos nav-item">
+                                    <a class="letraHeader nav-link active" aria-current="page" href="html/2servicios.html">Servicios</a>
+                                </li>
+                                <li class="linkDos nav-item">
+                                    <a class="letraHeader nav-link active" aria-current="page" href="html/3nosotros.html">Nosotros</a>
+                                </li>
+                                <li class="linkDos nav-item">
+                                    <a class="letraHeader nav-link active" aria-current="page" href="html/4galeria.html">Galeria</a>
+                                </li>
+                                <li class="linkDos nav-item">
+                                    <a class="letraHeader nav-link active" aria-current="page" href="html/5contacto.html">Contacto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-end">
+                <a href="html/carrito.html" id="botonCarrito"  title="Ir al carrito">
+                </a>
+                <a href="#" id="vaciarCarrito" title="Vaciar carrito">
+                    <button type="button" class="btn btn-danger">Vaciar Carrito</button>
+                </a>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </header>
+    <main class="container">
+        <div>
+            <h1>Circuito5 moto-store</h1>
+        </div>
+
+        <div>
+            <h3>Calcula el costo de tus productos en el simulador!</h3>
+            <p>Los resultados del simulador son meramente de referencia, para una cotizacion exacta recorda mandarnos un mail con tu pedido</p>
+            <p>circuito5-motostore@hotmail.com</p>
+        </div>
+
+        <div class="row" id="articulos">
+
+        </div>
+
+        <div>
+            <h4>Resultado del simulador.</h4>
+            <div id="resultadoSimuladorId">
+                <li id="productoId">
+                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden"></span> Producto
+                    </button>
+                    <ul class="dropdown-menu" id="productoIdLista">  
+                    </ul>
+                    </div>
+                </li>
+                <li id="colorId">Color/Talle</li>
+                <li id="marcaId">Marca</li>
+                <li id="codigoId">Codigo del producto</li>
+                <li id="retiroId">Lugar de retiro</li>
+                <li id=""> <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden"></span> Tipo de pago
+                    </button>
+                    <ul class="dropdown-menu" id="pagoIdLista">  
+                    </ul>
+                    </div></li>
+                <li id="">Cuotas</li>
+                <li id="precioFinalId">Precio final</li>
+            </div>
+        </div>
+    
+        <form id="btnEnviar">
+            <div class="mb-3">
+                <label for="mailPresupuesto" class="form-label">Dejanos tu mail para enviarte el presupuesto!</label>
+                <input type="email" class="form-control" id="mailPresupuesto" placeholder="tu.mail@presupuesto.com">
+            </div>
+            <div class="mb-3">
+                <label for="comentarioPresupuesto" class="form-label">Agrega un comentario a tu pedido:</label>
+                <textarea class="form-control" id="comentarioPresupuesto" rows="3" placeholder="Escribe Aqui..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" >Enviar</button>
+        </form>
+        <div id="avisoEnvio"></div>
+    </main>
+    <footer class="letraFooter fondoFooter footer" id="footerGrid">
+        <div id="nombreDireccion">
+            <h4 class="linkDos">
+                <a class="letraHeader" href="index.html">Circuito5 moto-store</a>
+            </h4>
+            <ul class="listaDesordenada">
+                <li class="linkDos">
+                    <a class="letraMain" href="https://goo.gl/maps/11QorNhFcnoPfq5U9" target="_blank">Av. Salvador Maria del Carril 2285
+                        <br>
+                        Ciudad Autonoma de Buenos Aires, Argentina
+                    </a>
+                </li>
+                <li class="linkDos">
+                    <p>Tel: 11-3005-2984</p>
+                </li>
+            </ul>
+         </div>
+        <div class="redesSociales" id="redeSociales">
+            <div><p>Seguinos en nuestras redes!</p></div>
+            <div>
+                <ol class="listaOrdenada">
+                    <li class="linkUno"><a href="https://www.facebook.com/Circuito-5-moto-store-487487557929143/"><img class="logosFooter" src="imagenes/logofacebook.png" alt="logofacebook"></a></li>
+                    <li class="linkUno"><a href="https://www.instagram.com/circuito5motostore/"><img class="logosFooter" src="imagenes/logoinstagram.png" alt=""> </a></li>
+                </ol>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="js/carrito.js"></script> 
+    <script src="js/articulos.js"></script>
+    <script src="js/pagos.js"></script>
+    <script src="js/main.js"></script>
+
+      
+</body>
+</html>
