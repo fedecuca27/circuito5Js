@@ -1,23 +1,23 @@
-//se que esta misma funcion la repeti varias veces cuando en realidad es para evitar repetir codigo, pero le fui cambiando el nombre y dejandola arriba de donde la necesitaba para ahorrarme el problema de que rompa
-//por esto, una vez que deje todo funcionando voy a empezar a reveer el tema de apdre e hijos y evitar repetir codigo
-/*function buscarProductoPago (id) {
-    let productos = upProductosLocalS();
-    return productos.find(i => i.id == id);
-}*/
-let finalPreFuera = "puto"
-function buscarPago (precio) {
-    let producto = precio;
-    return producto;
+
+function cuotasLista (numeroCuota) {
+    let cantidadCuota = numeroCuota;
+    console.log ("la cantidad de cuotas para el pago seleccionadas fueron de: " + cantidadCuota);
+    sessionStorage.setItem("cuotas", JSON.stringify(cantidadCuota));
+    return cantidadCuota;
 }
 
+function cuotasQueVa() {
+    return JSON.parse(sessionStorage.getItem("cuotas"));
+}  
+
+let finalPre = " "
+
 function efectivo() {
-    let listaPrecios = buscarPago();
+    let listaPrecios = preProdSelect ;
     let precio = listaPrecios;
     let interes = 10;
-    //alert ("El costo de su producto es $" + (precio - ((precio * interes) / 100)));
-   // precioFinalInner.innerHTML = ("El costo de su producto es $" + (precio - ((precio * interes) / 100)));
-   let finalPre = (precio - ((precio * interes) / 100));
-
+    let calculoFinalPre = (precio - ((precio * interes) / 100));
+    let finalPre = calculoFinalPre;
     if (precio >500) {
         let envioGratis = document.createElement("div");
         envioGratis.innerHTML = "<h3>Recuerda que tienes ENVIO GRATIS!!!</h3> <p>Envio sujeto a disponibilidad zonal.</p>";
@@ -26,12 +26,11 @@ function efectivo() {
    return finalPre;
 }
 function debito() {
-    let listaPrecios = buscarPago() ;
+    let listaPrecios = preProdSelect ;
     let precio = listaPrecios;
     let interes = 0;
-   // alert ("El costo de su producto es $" + (precio) + " ,recuerde nuestros descuentos abonando en efectivo!");
-    //precioFinalInner.innerHTML = ("El costo de su producto es $" + (precio));
-    let finalPre = precio;
+    let calculoFinalPre = precio;
+    let finalPre = calculoFinalPre;
     if (precio >500) {
         let envioGratis = document.createElement("div");
         envioGratis.innerHTML = "<h3>Recuerda que tienes ENVIO GRATIS!!!</h3> <p>Envio sujeto a disponibilidad zonal.</p>";
@@ -41,35 +40,30 @@ function debito() {
 }
 
 function credito() {
-    let listaPrecios = buscarPago() ;
+    let listaPrecios = preProdSelect ;
     let precio = listaPrecios;
     let interes = 1.15;
-    let cuotas = parseInt( prompt ("Ingrese la cantidad de cuotas a calcular."));
-    //alert ("El costo de su producto es de " + cuotas + " cuotas de $" + ((precio * interes) / cuotas));
-    if (cuotas > 3) {
-        alert ("El maximo de cuotas con tarjeta de credito es de 3");  
-    }
-    //precioFinalInner.innerHTML = ("El costo de su producto es de " + cuotas + " cuotas de $" + ((precio * interes) / cuotas));
-    let finalPre = ((precio * interes) / cuotas);
+    let cuotas = cuotasQueVa () ;
+    cuotas > 3 && alert ("El maximo de cuotas con tarjeta de credito es de 3");
+    let calculoFinalPre = ((precio * interes) / cuotas);
+    let finalPre = calculoFinalPre;
     if (precio >1000) {
         let envioGratis = document.createElement("div");
         envioGratis.innerHTML = "<h3>Recuerda que tienes ENVIO GRATIS!!!</h3> <p>Envio sujeto a disponibilidad zonal.</p>";
         document.body.append(envioGratis);
     }
     return finalPre;
+    
 }
 
 function mercadoPago() {
-    let listaPrecios = buscarPago() ;
+    let listaPrecios = preProdSelect ;
     let precio = listaPrecios;
     let interes = 1.1;
-    let cuotas = parseInt( prompt ("Ingrese la cantidad de cuotas a calcular."));
-    //alert ("El costo de su producto es de " + cuotas + " cuotas de $" + ((precio * interes) / cuotas));
-    if (cuotas > 12) {
-        alert ("El maximo de cuotas con Mercado Pago es de 12")
-    }
-    //precioFinalInner.innerHTML =  "El costo de su producto es de " + cuotas + " cuotas de $" + ((precio * interes) / cuotas);
-    let finalPre = ((precio * interes) / cuotas);
+    let cuotas = cuotasQueVa () ;
+    cuotas > 12 && alert ("El maximo de cuotas con Mercado Pago es de 12");
+    let calculoFinalPre = ((precio * interes) / cuotas);
+    let finalPre = calculoFinalPre;
     if (precio >1200) {
         let envioGratis = document.createElement("div");
         envioGratis.innerHTML = "<h3>Recuerda que tienes ENVIO GRATIS!!!</h3> <p>Envio sujeto a disponibilidad zonal.</p>";
@@ -79,25 +73,21 @@ function mercadoPago() {
 }
 
 
-
-
 const pagos = [
-    {id:1 , tipo: "Efectivo" , idea: efectivo()},
-    {id:2, tipo: "Debito" , idea: debito()},
-    {id:3, tipo: "Credito" ,idea:  credito()},
-    {id:4, tipo: "Mercado Pago" , idea:  mercadoPago()},
+    {id:1 , tipo: "Efectivo"},
+    {id:2, tipo: "Debito"},
+    {id:3, tipo: "Credito"},
+    {id:4, tipo: "Mercado Pago"},
 ]
+
 function tipoPagoLs (pagos) {
     localStorage.setItem("pagos" , JSON.stringify(pagos));
-
 }
+tipoPagoLs (pagos);
 function upTipoPagoLs () {
     return JSON.parse(localStorage.getItem("pagos"))
 }
-function buscarPagos (id) {
-    let productos = upTipoPagoLs();
-    return productos.find(i => i.id == id);
-}
+upTipoPagoLs ();
 
 
 //funciones para el calculador de costos del simulador
@@ -112,23 +102,34 @@ function generarListaPagos (){
 let productoInner = document.getElementById("pagoIdLista");
 productoInner.innerHTML= productoLista;
 }
+function upValorDolarSs() {
+    return JSON.parse(sessionStorage.getItem("dolarSimulador"));
+} 
+console.log (upValorDolarSs());
 function completarListaPagos (id) {
-    let pago =  buscarPagos (id);
-    let funPag = pago;
-   console.log (funPag.idea());
-    precioFinalInner.innerHTML = `Precio final: ${funPag.finalPre}`;
+    funPag = id;
+    funPag === 1 && finalEfe ();
+    funPag === 2 && finalDeb ();
+    funPag === 3 && finalCre ();
+    funPag === 4 && finalMer ();
 }
 
-
-
+function finalEfe () {
+    console.log (efectivo())
+    precioFinalInner.innerHTML = `Precio final: $${parseInt(efectivo())}, precio en usd ${parseInt(efectivo() / parseInt(upValorDolarSs()))}`;
+}
+function finalDeb () {
+    console.log (debito());
+    precioFinalInner.innerHTML = `Precio final: $${parseInt(debito())}, precio en usd ${parseInt(debito() / parseInt(upValorDolarSs()))}`;
+}
+function finalCre () {
+    console.log (credito());
+    precioFinalInner.innerHTML = `Precio final: $${parseInt(credito() * cuotasQueVa())} en ${cuotasQueVa()} cuotas de $${parseInt(credito())}, precio en usd${parseInt((credito() * cuotasQueVa()) / parseInt(upValorDolarSs()))}`;
+}
+function finalMer () {
+    console.log (mercadoPago());
+    precioFinalInner.innerHTML = `Precio final: $${parseInt(mercadoPago() * cuotasQueVa())} en ${cuotasQueVa()} cuotas de $${parseInt(mercadoPago())}, precio en usd${parseInt((mercadoPago() * cuotasQueVa()) / parseInt(upValorDolarSs()))}`;  
+}
 generarListaPagos();
-
-
-
-
-
-
-//tipoPagoLs(pagos);
-//cuotasInner.innerHTML = 
-
-
+console.log (cuotasQueVa());
+console.log (preProdSelect);

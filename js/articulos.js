@@ -57,30 +57,27 @@ function generarListaProductos (){
     let productoLista = "";
     for (const variable of productoFuncion) {
         productoLista +=
-        `<li><a class="dropdown-item" onclick="completarLista(${variable.id}); buscarPago(${variable.precio});">${variable.nombre}</a></li>`
-        }
-        
+        `<li><a class="dropdown-item" onclick="completarLista(${variable.id}) ; console.log(${variable.precio})">${variable.nombre}</a></li>`
+        }     
 let productoInner = document.getElementById("productoIdLista");
 productoInner.innerHTML= productoLista;
 }
+
 function buscarProductoSim (id) {
     let productos = upProductosLocalS();
     return productos.find(i => i.id == id);
 }
+
+let preProdSelect = " ";
+
 function completarLista (id) {
     let producto =  buscarProductoSim (id);
     colorInner.innerHTML = "Color/Talle: " + producto.colorTalle;
     marcaInner.innerHTML = "Marca: " + producto.marca;
     codigoInner.innerHTML = "Codigo de producto: " + producto.codigo;
     retiroInner.innerHTML = "Lugar de retiro: " + producto.retiro;
+    return preProdSelect = producto.precio
 }
-/*function proPago (id) {
-    let producto = upProductosLocalS();
-    return productos.find(i => i.id == id);
-}*/
 
-
-
+console.log(preProdSelect);
 generarListaProductos();
-//buscarPago(${variable.precio})
-//buscarPago(${variable.precio})

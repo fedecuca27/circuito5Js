@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="circuito5, circuito, taller, mecanica, potenciacion, custom, chopper, motos, repuestos, accesorios, honda, yamaha, suzuki, kawasaki, motomel, corven, keller, gilera, buenos aires, argentina, capital federal">
     <meta name="description=" content="Circuito5 Moto Store somos un taller y repuestera de motos nacionales e importadas en Buenos Aires Capital Federal Argentina">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Circuito 5 online-store</title>
     <link rel="icon" type="image/jpg" href="imagenes/logocircuito.jpg">
@@ -86,13 +87,25 @@
                 <li id="marcaId">Marca</li>
                 <li id="codigoId">Codigo del producto</li>
                 <li id="retiroId">Lugar de retiro</li>
-                <li id=""> <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <li id="">
+                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden"></span> Cuotas
+                        </button>
+                        <ul class="dropdown-menu" id=""> 
+                            <li><a class="dropdown-item" onclick="cuotasLista(1);">1</a></li>
+                            <li><a class="dropdown-item" onclick="cuotasLista(3);">3</a></li>
+                            <li><a class="dropdown-item" onclick="cuotasLista(6);">6</a></li>
+                        </ul>
+                        </div></li>
+                </li>
+                <li id=""> 
+                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden"></span> Tipo de pago
                     </button>
                     <ul class="dropdown-menu" id="pagoIdLista">  
                     </ul>
                     </div></li>
-                <li id="">Cuotas</li>
+
                 <li id="precioFinalId">Precio final</li>
             </div>
         </div>
@@ -106,9 +119,25 @@
                 <label for="comentarioPresupuesto" class="form-label">Agrega un comentario a tu pedido:</label>
                 <textarea class="form-control" id="comentarioPresupuesto" rows="3" placeholder="Escribe Aqui..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" >Enviar</button>
+            <div>
+                <button type="submit" class="btn btn-primary" id="alertaEnviar" >Enviar</button>
+            </div>
         </form>
+        <div id="resultadoValidar"></div>
         <div id="avisoEnvio"></div>
+
+        <div>
+            <div>
+                <h4>Recorda que podes abonar en dolares!</h4>
+                <h5>El valor del dolar se tomara al valor blue a la cotizacion al momento de realizar la compra.</h5>
+            </div>
+            <div>
+                <ul>
+                    <li id="dolarOficial"></li>
+                    <li id="dolarBlue"></li>
+                </ul>
+            </div>
+        </div>
     </main>
     <footer class="letraFooter fondoFooter footer" id="footerGrid">
         <div id="nombreDireccion">
@@ -139,10 +168,12 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="js/carrito.js"></script> 
+    <script src="js/carrito.js"></script>
     <script src="js/articulos.js"></script>
     <script src="js/pagos.js"></script>
+    <script src="js/dolarApi.js"></script>
     <script src="js/main.js"></script>
+    
 
       
 </body>

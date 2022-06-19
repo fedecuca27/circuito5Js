@@ -6,9 +6,7 @@ function buscarProducto (id) {
 function cargarProductosCarrito() {
     if (localStorage.getItem("carrito")) {
         return JSON.parse(localStorage.getItem("carrito"));;
-    
     }
-
     return [];
 }
 
@@ -23,6 +21,7 @@ function agregarAlCarrito (id) {
 function eliminarCarrito () {
     localStorage.removeItem("carrito")
     contadorCarrito();
+    cargarProductosCarrito();
 }
 
 document.getElementById("vaciarCarrito").addEventListener("click" , eliminarCarrito)
@@ -39,23 +38,39 @@ function contadorCarrito () {
     document.getElementById("botonCarrito").innerHTML = botonCarrito;
 }
 
-/*function productosSeleccionados () {
+function productosSeleccionados () {
     let productoFuncion = cargarProductosCarrito ();
-let articuloMain = "";
+    let carritoProductos = document.getElementById("carritoProductos");
+    let total = 0 ;
+    let contenido = `<table class="table table-hover">
+    <tr>
+    <th>Articulo</th>
+    <th>Precio</th>
+    </tr>`;
 for (const variable of productoFuncion) {
-    articuloMain += `<div class="col-md-3"
-        <div class="card" style="width: 18rem;">
-            <img src="imagenes/${variable.imagen}" class="card-img-top"  alt="${variable.codigo} width="100px" height="200px" >
-            <div class="card-body">
-                <h5 class="card-title">${variable.nombre} marca ${variable.marca}</h5>
-                <p class="card-text">${variable.nombre} ${variable.marca} ${variable.modelo} ${variable.colorTalle} codigo: ${variable.codigo} </p>
-                <p class="card-text">Precio: <strong>$${variable.precio}</strong></p>
-                <a href="#" class="btn btn-primary" onclick="agregarAlCarrito(${variable.id});">Agregar al carrito</a>
-            </div>
-        </div>
-        </div>`
+    contenido += `<tr>
+    <td>--${variable.nombre}</td>
+    <td>$${variable.precio}</td>
+    <td><button class='btn btn-danger'  onclick="eliminarElementoCarrito(${variable.id}) "> X </button></td>
+    </tr>`;
+    total += variable.precio;
     }
 
-let articulosInner = document.getElementById("articulos");
-articulosInner.innerHTML= articuloMain;
-}*/
+contenido += `<tr>
+<td>--Precio Total</>
+<td>$${total}</td>
+<td>-</td>
+</tr>
+</table>`;
+carritoProductos.innerHTML = contenido;
+}
+
+productosSeleccionados();
+
+function eliminarElementoCarrito (id) {
+    let producto = cargarProductosCarrito();
+    let productosCarrito = producto.filter (x => x.id != id);
+    localStorage.setItem("carrito", JSON.stringify(productosCarrito));
+    contadorCarrito();
+    productosSeleccionados();
+}
